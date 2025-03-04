@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayane, Voce Me Ama?</title>
+    <style>
+        body {
+            background-color: pink; /* Fundo rosa */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 36px;
+            color: white;
+        }
+        .button {
+            font-size: 24px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .sim {
+            background-color: lightgreen;
+        }
+        .nao {
+            background-color: lightcoral;
+        }
+        #patinho {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rayane, voce ainda mim ama??</h1>
+    <button class="button nao" id="naoBtn">Nao</button>
+    <button class="button sim" id="simBtn">Sim</button>
+
+    <!-- Imagem do pato -->
+    <img src="https://cdn-icons-png.flaticon.com/512/3239/3239279.png" alt="Pato" id="patinho">
+
+    <script>
+        const naoBtn = document.getElementById('naoBtn');
+        const simBtn = document.getElementById('simBtn');
+        const patinho = document.getElementById('patinho');
+
+        // Função para mover o botão "nao"
+        naoBtn.addEventListener('mouseover', () => {
+            naoBtn.style.position = 'absolute';
+            naoBtn.style.left = `${Math.random() * 90}vw`;
+            naoBtn.style.top = `${Math.random() * 80}vh`;
+        });
+
+        // Função para aumentar o botão "sim"
+        simBtn.addEventListener('mouseover', () => {
+            simBtn.style.transform = 'scale(1.2)';
+        });
+
+        // Quando o botão "sim" for clicado
+        simBtn.addEventListener('click', () => {
+            alert('Eu tambem te amo, Rayane! ??');
+        });
+
+        // Quando o botão "nao" for clicado
+        naoBtn.addEventListener('click', () => {
+            alert('Voce me ama sim!!');
+        });
+
+        // Movimento do pato
+        setInterval(() => {
+            const randomX = Math.random() * 90;
+            const randomY = Math.random() * 80;
+            patinho.style.left = `${randomX}vw`;
+            patinho.style.top = `${randomY}vh`;
+        }, 2000); // O pato se move a cada 2 segundos
+    </script>
+
+</body>
+</html>
